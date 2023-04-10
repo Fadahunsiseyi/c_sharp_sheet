@@ -126,7 +126,14 @@ var aveOfAmountDispute = cases.Average(c => c.AmountDispute);
 var maxOfAmountDispute = cases.Max(c => c.AmountDispute);
 var minOfAmountDispute = cases.Min(c => c.AmountDispute);
 
-//var lawyerOrderAsc = lawyers.OrderBy(law => law.Cases.Sum(c => c.AmountDispute));
+var lawyerOrderAsc = lawyers.OrderBy(law => law.Cases.Sum(c => c.AmountDispute));
 var lawyerOrderDes = lawyers.OrderByDescending(law => law.Cases.Sum(c => c.AmountDispute));
+
+var caseTitles = cases.Select(c =>  c.Title).ToList();
+var lawyerNames = lawyers.Select(c => c.FirstName + "," + c.LastName ).ToList();
+
+var casesPerLawyer = lawyers.Select(l => l.Cases);
+var casesPerLawyerFlat = lawyers.SelectMany(l => l.Cases);
+
 
 Console.WriteLine();
