@@ -125,3 +125,8 @@ var sumOfAmountDispute = cases.Sum(c => c.AmountDispute);
 var aveOfAmountDispute = cases.Average(c => c.AmountDispute);
 var maxOfAmountDispute = cases.Max(c => c.AmountDispute);
 var minOfAmountDispute = cases.Min(c => c.AmountDispute);
+
+//var lawyerOrderAsc = lawyers.OrderBy(law => law.Cases.Sum(c => c.AmountDispute));
+var lawyerOrderDes = lawyers.OrderByDescending(law => law.Cases.Sum(c => c.AmountDispute));
+
+Console.WriteLine();
