@@ -135,5 +135,9 @@ var lawyerNames = lawyers.Select(c => c.FirstName + "," + c.LastName ).ToList();
 var casesPerLawyer = lawyers.Select(l => l.Cases);
 var casesPerLawyerFlat = lawyers.SelectMany(l => l.Cases);
 
+var caseTitlesOfCommercialLawyers = lawyers.Where(law => law.Cases.All(
+    c => c.CaseType == CaseType.Commercial
+    )).SelectMany(l => l.Cases).Select(l => l.Title);
+
 
 Console.WriteLine();
