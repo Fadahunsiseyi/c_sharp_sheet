@@ -139,5 +139,10 @@ var caseTitlesOfCommercialLawyers = lawyers.Where(law => law.Cases.All(
     c => c.CaseType == CaseType.Commercial
     )).SelectMany(l => l.Cases).Select(l => l.Title);
 
+//order lawyer by the money in dispute for commercial cases only
+var lawyerOrderAscByMoneyInDispute = lawyers.OrderBy(law => law.Cases.Where(c => c.CaseType == CaseType.Commercial).Sum(c => c.AmountDispute));
+var selectAllClients = clients.Select(c => c.Cases);
+var selectAllCases = clients.SelectMany(c => c.Cases);
+
 
 Console.WriteLine();
